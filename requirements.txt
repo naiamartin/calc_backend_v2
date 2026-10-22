@@ -3,3 +3,6 @@ uvicorn
 FastAPI
 pydantic
 python-multipart
+httpx2
+flake8
+pytest

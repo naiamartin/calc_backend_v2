@@ -1,6 +1,6 @@
 def calculate(data):
     num1 = float(data['num1'])
-    opt  = data['opt']
+    opt = data['opt']
     num2 = float(data['num2'])
 
     match opt:

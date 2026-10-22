@@ -9,6 +9,7 @@ env:
 jobs:
   destroy_stack:
     runs-on: ubuntu-26.04
+    timeout-minutes: 30
     permissions: write-all
 
     steps:

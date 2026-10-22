@@ -1,4 +1,5 @@
 import csv
+from pathlib import Path
 
 from fastapi import FastAPI, Depends, File, HTTPException, UploadFile
 from sqlalchemy.orm import Session
@@ -9,9 +10,11 @@ from database import SessionLocal, engine
 from fastapi.middleware.cors import CORSMiddleware
 import logging
 
-logging.basicConfig(filename="server.log",
-                    encoding="utf-8",
-                    level=logging.DEBUG)
+logging.basicConfig(
+    filename=Path(__file__).resolve().parent.parent / "server.log",
+    encoding="utf-8",
+    level=logging.DEBUG,
+)
 
 # Create all tables in the database
 models.Base.metadata.create_all(bind=engine)

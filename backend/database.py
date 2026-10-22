@@ -1,11 +1,14 @@
 import os
+from pathlib import Path
 
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
-# Database URL for SQLite (it will create a file called test.db)
-SQLALCHEMY_DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./db.db")
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+SQLALCHEMY_DATABASE_URL = os.getenv(
+    "DATABASE_URL", f"sqlite:///{PROJECT_ROOT / 'db.db'}"
+)
 
 # Create the database engine
 engine = create_engine(

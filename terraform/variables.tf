@@ -18,6 +18,6 @@ variable "instance_type" {
 
 variable "app_port" {
   description = "The app port"
-  type = int 
+  type = number 
   default = 8000
 }

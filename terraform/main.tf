@@ -29,8 +29,8 @@ resource "aws_security_group" "server_sg" {
 
   ingress {
     description = "HTTP traffic"
-    from_port   = 80
-    to_port     = 80
+    from_port   = var.app_port
+    to_port     = var.app_port
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
@@ -56,17 +56,27 @@ resource "aws_instance" "server" {
   ami           = data.aws_ssm_parameter.ubuntu_ami.value
   instance_type = var.instance_type
 
+  # Add security group
   vpc_security_group_ids = [aws_security_group.server_sg.id]
-  
-  user_data                   = templatefile("${path.module}/user_data.tpl", {})
-  user_data_replace_on_change = true
+
+  # Inject startup scripts
+  user_data = templatefile("user_data.tpl", {
+    app_port = var.app_port
+  }) 
+
   tags = {
     Name = var.instance_name
   }
 }
 
+# Creates an elastic IP address and associates it with the backend server
+resource "aws_eip" "server_eip" {
+  instance = aws_instance.server.id
+  domain = "vpc"
+}
+
 # Output the public IP address
 output "public_ip" {
-  value       = "${aws_instance.server.public_ip}"
+  value       = "http://${aws_eip.server_eip.public_ip}:${var.app_port}/"
   description = "The public IP of your application"
 }

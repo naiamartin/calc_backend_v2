@@ -7,5 +7,5 @@ httpx
 flake8
 pytest
 python-dotenv
-psycopg2-binary
+psycopg[binary]
 email-validator

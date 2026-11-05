@@ -32,7 +32,6 @@ jobs:
       env:
         TF_LOG: DEBUG
         # Que lo saque directamente en stdout para que se vea en el log de GitHub Actions
-        TF_LOG_PATH: tf.log
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         AWS_SESSION_TOKEN: ${{ secrets.AWS_SESSION_TOKEN }}

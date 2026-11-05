@@ -8,7 +8,7 @@ source venv/bin/activate
 
 # Clon the latest app directly onto the server
 git clone https://github.com/naiamartin/calc_backend_v2.git
-cd calc_backend/backend
+cd calc_backend_v2/backend
 pip install -r requirements.txt
 
 # Run Uvicorn on port 80 bound to all interfaces

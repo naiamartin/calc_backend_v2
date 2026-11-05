@@ -71,8 +71,15 @@ resource "aws_instance" "server" {
 
 # Creates an elastic IP address and associates it with the backend server
 resource "aws_eip" "server_eip" {
-  instance = aws_instance.server.id
-  domain = "vpc"
+  filter {
+    name = "tag:name"
+    value = ["my_eip"]
+  }
+}
+
+resource "aws_eip_association" "eip_assoc"{
+  instance_id = aws_instance.server.id
+  allocation_id = data.aws_eip.server_eip.id
 }
 
 # Output the public IP address

@@ -8,4 +8,5 @@ flake8
 pytest
 python-dotenv
 psycopg2-binary
+psycorpg
 email-validator

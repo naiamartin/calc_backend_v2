@@ -70,7 +70,7 @@ resource "aws_instance" "server" {
 }
 
 # Creates an elastic IP address and associates it with the backend server
-resource "aws_eip" "server_eip" {
+data "aws_eip" "server_eip" {
   filter {
     name = "tag:name"
     value = ["my_eip"]

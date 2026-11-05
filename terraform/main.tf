@@ -61,8 +61,9 @@ resource "aws_instance" "server" {
 
   # Inject startup scripts
   user_data = templatefile("user_data.tpl", {
-    app_port = var.app_port
-  }) 
+  app_port     = var.app_port
+  database_url = var.database_url
+  })
 
   tags = {
     Name = var.instance_name

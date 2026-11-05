@@ -21,3 +21,8 @@ variable "app_port" {
   type = number 
   default = 8000
 }
+
+variable "database_url"{
+  type = string
+  sensitive = true
+}

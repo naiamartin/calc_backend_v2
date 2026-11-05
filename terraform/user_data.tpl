@@ -2,7 +2,7 @@
 
 # Install your Python environment
 apt-get update -y
-apt-get install -y python3.14-venv
+apt-get install python3.14-venv -y
 python3.14 -m venv venv
 source venv/bin/activate
 

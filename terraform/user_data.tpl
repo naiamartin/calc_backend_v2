@@ -2,14 +2,14 @@
 
 # Install your Python environment
 apt-get update -y
-apt-get install python3.14-venv -y
+apt-get install -y python3.14-venv
 python3.14 -m venv venv
 source venv/bin/activate
 
 # Clon the latest app directly onto the server
-git clone https://github.com/naiamartin/calc_backend.git
+git clone https://github.com/naiamartin/calc_backend_v2.git
 cd calc_backend/backend
 pip install -r requirements.txt
 
 # Run Uvicorn on port 80 bound to all interfaces
-uvicorn main:app --host 0.0.0.0 --port {var.app_port} > uvicorn.log 2>&1 &
+uvicorn main:app --host 0.0.0.0 --port ${app_port} > uvicorn.log 2>&1 &

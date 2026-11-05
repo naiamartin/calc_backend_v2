@@ -3,6 +3,9 @@ uvicorn
 FastAPI
 pydantic
 python-multipart
-httpx2
+httpx
 flake8
 pytest
+python-dotenv
+psycopg2-binary
+email-validator

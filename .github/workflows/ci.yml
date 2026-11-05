@@ -32,6 +32,5 @@ jobs:
         # stop the build if there are Python syntax errors or undefined names
         flake8 backend 
     - name: Test with pytest
-      working-directory: backend
       run: |
-        pytest -v tests/test_calc_app_v3.py
+        pytest -v backend/tests/test_calc_app_v3.py

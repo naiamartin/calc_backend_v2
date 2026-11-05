@@ -84,6 +84,6 @@ resource "aws_eip_association" "eip_assoc"{
 
 # Output the public IP address
 output "public_ip" {
-  value       = "http://${aws_eip.server_eip.public_ip}:${var.app_port}/"
+  value       = "http://${data.aws_eip.server_eip.public_ip}:${var.app_port}/"
   description = "The public IP of your application"
 }

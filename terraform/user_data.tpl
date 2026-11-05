@@ -12,4 +12,4 @@ cd calc_backend/backend
 pip install -r requirements.txt
 
 # Run Uvicorn on port 80 bound to all interfaces
-uvicorn main:app --host 0.0.0.0 --port 80 > uvicorn.log 2>&1 &
+uvicorn main:app --host 0.0.0.0 --port {var.app_port} > uvicorn.log 2>&1 &

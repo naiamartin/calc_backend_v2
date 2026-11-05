@@ -73,7 +73,7 @@ resource "aws_instance" "server" {
 data "aws_eip" "server_eip" {
   filter {
     name = "tag:name"
-    value = ["my_eip"]
+    values = ["my_eip"]
   }
 }
 
